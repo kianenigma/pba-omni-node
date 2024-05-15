@@ -15,13 +15,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// TODO:
-// - [x] Ability to pass genesis state in a user friendly way.
-// - [x] Test this with multiple variants of minimal runtime.
-// - [x] what is happening when I run this with --execution Native?
-// - [ ] Give it the polkadot runtime. Maybe even that will work?
-// - [ ] Give it a parachain runtime.
-
 use crate::{
 	cli::{Cli, Subcommand},
 	service,
@@ -61,6 +54,7 @@ impl SubstrateCli for Cli {
 			let code = std::fs::read(&self.runtime)
 				.map_err(|e| format!("Failed to read runtime {}: {}", &self.runtime, e))?;
 			println!("No --chain provided; using default chain-spec and --runtime");
+
 			let mut properties = Properties::new();
 			properties.insert("tokenDecimals".to_string(), 0.into());
 			properties.insert("tokenSymbol".to_string(), "MINI".into());
