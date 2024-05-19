@@ -23,8 +23,6 @@
 //!
 //! RPC: This node exposes only [`substrate_frame_rpc_system`] as additional RPC endpoints from the
 //! runtime.
-//!
-//! TODO: add tx-payment as well?
 
 /// The account id type that is expected to be used in `frame-system`.
 pub type AccountId = sp_runtime::AccountId32;
