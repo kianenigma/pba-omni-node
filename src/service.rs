@@ -117,16 +117,17 @@ pub fn new_full(config: Configuration, consensus: Consensus) -> Result<TaskManag
 	use sc_network::NetworkBackend;
 
 	let net_config = sc_network::config::FullNetworkConfiguration::<
-		crate::standards::OpaqueBlock,
-		<crate::standards::OpaqueBlock as sp_runtime::traits::Block>::Hash,
-		sc_network::NetworkWorker<crate::standards::OpaqueBlock, _>,
+		OpaqueBlock,
+		<OpaqueBlock as sp_runtime::traits::Block>::Hash,
+		sc_network::NetworkWorker<OpaqueBlock, _>,
 	>::new(&config.network);
 
-	let metrics =
-		sc_network::NetworkWorker::<
-			crate::standards::OpaqueBlock,
-			<crate::standards::OpaqueBlock as sp_runtime::traits::Block>::Hash,
-		>::register_notification_metrics(config.prometheus_config.as_ref().map(|cfg| &cfg.registry));
+	let metrics = sc_network::NetworkWorker::<
+		OpaqueBlock,
+		<OpaqueBlock as sp_runtime::traits::Block>::Hash,
+	>::register_notification_metrics(
+		config.prometheus_config.as_ref().map(|cfg| &cfg.registry)
+	);
 
 	let (network, system_rpc_tx, tx_handler_controller, network_starter, sync_service) =
 		sc_service::build_network(sc_service::BuildNetworkParams {

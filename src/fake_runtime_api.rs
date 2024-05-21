@@ -15,10 +15,7 @@ pub struct FakeRuntime;
 /// Some types that we need to fulfill the trait bounds at compile-time, but in runtime they don't
 /// matter at all.
 mod whatever {
-	pub(crate) type Block = sp_runtime::generic::Block<
-		sp_runtime::generic::Header<BlockNumber, sp_runtime::traits::BlakeTwo256>,
-		sp_runtime::OpaqueExtrinsic,
-	>;
+	pub(crate) type Block = crate::standards::OpaqueBlock;
 	pub(crate) type Header = <Block as sp_runtime::traits::Block>::Header;
 	pub(crate) type AccountId = sp_runtime::AccountId32;
 	pub(crate) type Nonce = u32;
