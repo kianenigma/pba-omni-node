@@ -21,8 +21,6 @@ use crate::{
 };
 use sc_cli::SubstrateCli;
 use sc_service::{ChainType, PartialComponents, Properties};
-use sc_telemetry::serde_json::json;
-use sp_keyring::AccountKeyring;
 
 pub type ChainSpec = sc_service::GenericChainSpec<()>;
 
@@ -63,18 +61,7 @@ impl SubstrateCli for Cli {
 
 			// `.with_genesis_config(Default::default)` won't work, but should.
 			let tmp = sc_chain_spec::GenesisConfigBuilderRuntimeCaller::<'_, ()>::new(&code);
-			let mut genesis = tmp.get_default_config()?;
-
-			let endowment = 1u64 << 60;
-			let balances = AccountKeyring::iter()
-				.map(|a| (a.to_account_id(), endowment))
-				.collect::<Vec<_>>();
-
-			genesis.get_mut("balances").map(|b| {
-				b.as_object_mut().map(|b| {
-					b.insert("balances".to_string(), json!(balances));
-				});
-			});
+			let genesis = tmp.get_default_config()?;
 
 			ChainSpec::builder(code.as_ref(), Default::default())
 				.with_name("Development")
