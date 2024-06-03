@@ -24,8 +24,11 @@
 //! RPC: This node exposes only [`substrate_frame_rpc_system`] as additional RPC endpoints from the
 //! runtime.
 
+use sp_runtime::{traits, MultiSignature};
+
 /// The account id type that is expected to be used in `frame-system`.
-pub type AccountId = sp_runtime::AccountId32;
+pub type AccountId =
+	<<MultiSignature as traits::Verify>::Signer as traits::IdentifyAccount>::AccountId;
 /// The index type that is expected to be used in `frame-system`.
 pub type Nonce = u32;
 /// The block type that is expected to be used in `frame-system`.

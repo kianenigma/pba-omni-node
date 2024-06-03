@@ -10,7 +10,7 @@
 use sp_runtime::traits::Block as BlockT;
 
 /// The fake runtime.
-pub struct FakeRuntime;
+pub(crate) struct FakeRuntime;
 
 /// Some types that we need to fulfill the trait bounds at compile-time, but in runtime they don't
 /// matter at all.

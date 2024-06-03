@@ -14,3 +14,5 @@ Cargo.lock
 *.pdb
 
 chain_spec.json
+
+.vscode
