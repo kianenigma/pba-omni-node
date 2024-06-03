@@ -35,6 +35,8 @@ pub type Nonce = u32;
 pub type BlockNumber = u32;
 /// The hash type that is expected to be used in `frame-system`.
 pub type Hashing = sp_runtime::traits::BlakeTwo256;
+/// The balance type that is expected to be used in the runtime.
+pub type Balance = u128;
 
 /// The hash type that is expected to be used in the runtime.
 pub type Header = sp_runtime::generic::Header<BlockNumber, Hashing>;

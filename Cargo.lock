@@ -4344,6 +4344,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-transaction-payment-rpc"
+version = "35.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "46ba896951ef39011e27d0a91b565520636f926f01b1c912a411146af079ef5e"
+dependencies = [
+ "jsonrpsee",
+ "pallet-transaction-payment-rpc-runtime-api",
+ "parity-scale-codec",
+ "sp-api",
+ "sp-blockchain",
+ "sp-core",
+ "sp-rpc",
+ "sp-runtime",
+ "sp-weights",
+]
+
+[[package]]
 name = "pallet-transaction-payment-rpc-runtime-api"
 version = "33.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4517,6 +4534,7 @@ dependencies = [
  "futures-timer",
  "jsonrpsee",
  "pallet-transaction-payment",
+ "pallet-transaction-payment-rpc",
  "pallet-transaction-payment-rpc-runtime-api",
  "sc-basic-authorship",
  "sc-chain-spec",
