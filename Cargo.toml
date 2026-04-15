@@ -56,6 +56,9 @@ pallet-transaction-payment = { version = "33.0.0" }
 substrate-frame-rpc-system = { version = "33.0.0" }
 frame-system-rpc-runtime-api = { version = "31.0.0" }
 
+[patch.crates-io]
+core2 = { git = "https://github.com/technocreatives/core2" }
+
 [build-dependencies]
 substrate-build-script-utils = { version = "11.0.0" }
 
